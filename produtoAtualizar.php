@@ -1,4 +1,8 @@
 <?php
+    require "conexao.php";
+    require "noinject.php";
+    require "validacoes.php";
+
     $imagem = $_FILES["foto"];
 
     $origem = $imagem["tmp_name"];
@@ -16,22 +20,17 @@
     $dimensoes = $_POST["dimensoes"];
     $idprod = $_POST["idprod"];
 
-    require "campoObrigatorio.php";
     $obrigatorios = array($titulo,$descricao,$preco,$categoria,$idioma,$capaComum,$categoria);
     foreach ($obrigatorios as $v){
         campoObrigatorio($v);
     }
     
-    require "valDouble.php";
     valDouble($preco);
 
-    require "valInt.php";
     valInt($capaComum);
 
     move_uploaded_file($origem,$destino);
 
-    require "conexao.php";
-    require "noinject.php";
     $todos = array($titulo,$descricao,$preco,$categoria,$tipoCapa,$dataLancamento,$editora,$idioma,$capaComum,$dimensoes,$categoria);
     foreach ($todos as $v){
         $v = noinject($v,$conexao);

@@ -1,6 +1,7 @@
 <?php 
-    require "cabecalho.php";
     require "conexao.php";
+    require "cabecalho.php";
+    require "validacoes.php";
 
     $comando = "SELECT u.*, e.bairro FROM Usuarios u INNER JOIN enderecos e ON u.endereco = e.idend";
     $resultado = mysqli_query($conexao, $comando);
