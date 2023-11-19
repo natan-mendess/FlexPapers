@@ -6,6 +6,10 @@
     $comando = "SELECT u.*, e.bairro FROM Usuarios u INNER JOIN enderecos e ON u.endereco = e.idend";
     $resultado = mysqli_query($conexao, $comando);
     $registros = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+
+    if($_SESSION["admin"] == false){
+        die("Página acessível apenas a administradores.");
+    }
     ?>
 
     <div id="lista_produtos">

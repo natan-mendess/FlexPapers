@@ -47,6 +47,15 @@
     <label class="label-campo" for="telefone">Telefone:</label>
     <input class="campo-texto" id="telefone" type="text" name="telefone" value="<?=$usuario["telefone"]?>">
 
+    <br>
+    <label for="admin" class="label-campo">Administrador:</label>
+        <div id="sexos">
+            <input type="radio" id="sim" name="admin" value="1">
+            <label for="sim">sim</label>
+            <input type="radio" id="nao" name="admin" value="0">
+            <label for="nao">não</label>
+        </div>
+
     <br><br>
     <button class="botao-enviar" type="submit">Enviar</button>
 </form>

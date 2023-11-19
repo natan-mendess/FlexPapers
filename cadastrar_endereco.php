@@ -1,6 +1,10 @@
 <?php 
     require "cabecalho.php";
     require "conexao.php";
+
+    if($_SESSION["admin"] == false){
+        die("Página acessível apenas a administradores.");
+    }
 ?>
     <div id="divs_dash">
         <form id="cadastrados" method="post" action="inserir_endereco.php">

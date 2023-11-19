@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
-
+<?php
+    session_start();
+?>
 <head>
     <meta charset="UTF-8">
     <title>Flex Papers</title>
@@ -27,10 +29,28 @@
                     <i class="fa-sharp fa-solid fa-cart-shopping" style="color: #000000;"></i>Carrinho
                 </button>
             </a>
-            <a href="login_cadastro.php">
-                <button id="botao_conta" class="botao_cabecalho">
-                    <i class="fa-solid fa-user" style="color: #000000;"></i>Minha conta
-                </button>
-            </a>
+
+            <?php
+            if (isset($_SESSION["logado"])) {
+                echo '<div class="botao_cabecalho">';
+                echo 'Bem-vindo, ' . $_SESSION["logado"] . '!';
+                echo '<a href="logoff.php">';
+                echo '<button class="botao_cabecalho" id="botao_sair">';
+                echo 'Sair';
+                echo '</button>';
+                echo '</a>';
+                echo '</div>';
+            } else {
+                echo '<a href="login_cadastro.php">';
+                echo '<button id="botao_conta" class="botao_cabecalho">';
+                echo '<i class="fa-solid fa-user" style="color: #000000;"></i>Minha conta';
+                echo '</button>';
+                echo '</a>';
+            }
+
+            if($_SESSION["admin"] == NULL){
+                $_SESSION["admin"] == false;
+            }
+            ?>
         </div>
     </div>

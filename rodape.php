@@ -11,7 +11,9 @@
                     <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
                 </ul>
             </div>
-
+            <?php
+                if($_SESSION["admin"]){
+            ?>
             <div class="div_subrodape">
                 <h2 class="sub_rodape">Editar</h2>
                 <ul class="ul_rodape">
@@ -22,7 +24,23 @@
                     <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
                 </ul>
             </div>
-
+            <?php
+                }else{
+            ?>
+            <div class="div_subrodape">
+                <h2 class="sub_rodape">Sub Rodape</h2>
+                <ul class="ul_rodape">
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                </ul>
+            </div>
+            <?php
+                }
+                if($_SESSION["admin"]){
+            ?>
             <div class="div_subrodape">
                 <h2 class="sub_rodape">Cadastro</h2>
                 <ul class="ul_rodape">
@@ -33,7 +51,22 @@
                     <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
                 </ul>
             </div>
-
+            <?php
+                }else{
+            ?>
+            <div class="div_subrodape">
+                <h2 class="sub_rodape">Sub Rodape</h2>
+                <ul class="ul_rodape">
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                    <li class="li_subrodape"><a href="#" class="link_rodape">Link Rodape</a></li>
+                </ul>
+            </div>
+            <?php
+                }
+            ?>
             <div class="div_subrodape">
                 <h2 class="sub_rodape">Sub Rodape</h2>
                 <ul class="ul_rodape">

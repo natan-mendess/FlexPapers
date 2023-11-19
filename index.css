@@ -1087,4 +1087,27 @@ hr{
     background-color: #ccc;
     color: #999;
 }
-  
+
+.erro_login {
+    color: #d9534f;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.botao_conta_mensagem {
+    padding: 10px 20px;
+    font-size: 15px;
+    background-color: #CCCCCC;
+    color: #fff;
+    border: solid 1px #afafaf;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+}

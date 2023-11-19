@@ -5,6 +5,10 @@
     $comando = "SELECT * FROM produtos";
     $resultado = mysqli_query($conexao, $comando);
     $registros = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+
+    if($_SESSION["admin"] == false){
+        die("Página acessível apenas a administradores.");
+    }
     ?>
 
     <div id="lista_produtos">

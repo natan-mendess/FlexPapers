@@ -4,6 +4,10 @@
 
     $comandoCat = "SELECT idcat, nome FROM categoria";
     $resultado2 = mysqli_query($conexao, $comandoCat);
+
+    if($_SESSION["admin"] == false){
+        die("Página acessível apenas a administradores.");
+    }
 ?>
     <div id="divs_dash">
         <form id="cadastrados" method="post" action="inserir_produto.php" enctype="multipart/form-data">

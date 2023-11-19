@@ -4,6 +4,11 @@
 
     $comando = "SELECT idend, bairro FROM enderecos";
     $resultado = mysqli_query($conexao, $comando);
+
+    if(isset($_SESSION["msg"])){ ?>
+        <p class="erro_login"><?=$_SESSION["msg"]?></p>
+        <?php unset($_SESSION["msg"]);
+    }
 ?>
     <h1 class="h1_login">Login do cliente</h1>
     <div id="divs_login">
@@ -12,15 +17,14 @@
             <h2 class="h2_cliente">Já é cadastrado?</h2>
             <p class="p1_cliente">Então entre com seus dados de login e senha:</p>
 
-            <form id="form_login">
-
+            <form id="form_login" method="post" action="logar.php">
                 <label for="email1" class="label_login">seu e-mail:</label>
-                <input type="email" id="email1" placeholder="Ex: ronniecoleman@gmail.com">
+                <input type="email" id="email1" placeholder="Ex: ronniecoleman@gmail.com" name="email">
                 <label for="senha1" class="label_login">sua senha:</label>
-                <input type="password" id="senha1">
+                <input type="password" id="senha1" name="senha">
 
                 <a href="#" id="forgot">esqueceu sua senha?</a>
-                <button id="botao_entrar">ENTRAR</button>
+                <button id="botao_entrar" type="submit">ENTRAR</button>
                 <div id="login_face">
                     <h3 id="h3_login">Entrar com sua conta do Facebook ou Google</h3>
                     <a href="#"><i class="fa-brands fa-google-plus-g fa-2xl" style="color: #000000;"
