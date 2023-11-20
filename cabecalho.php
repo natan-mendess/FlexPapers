@@ -49,7 +49,7 @@
             }
 
             if($_SESSION["admin"] == NULL){
-                $_SESSION["admin"] == false;
+                $_SESSION["admin"] = false;
             }
             ?>
         </div>

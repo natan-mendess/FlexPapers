@@ -224,7 +224,9 @@ i {
 
 .carrinho_cabecalho{
     display: flex;
-    gap: 28px;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .carrinho_cabecalho > :first-child{
@@ -252,6 +254,8 @@ i {
     display: flex;
     gap: 30px;
     align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .imgcarrinho{
@@ -1110,4 +1114,15 @@ hr{
     border-radius: 4px;
     cursor: pointer;
     color: black;
+}
+
+.remover-link {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.remover-link:hover {
+    color: #ff3333;
 }

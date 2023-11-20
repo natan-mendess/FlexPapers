@@ -1,39 +1,45 @@
-<?php require "cabecalho.php"; ?>
+<?php 
+    require "cabecalho.php";
+    require "conexao.php";
+?>
+
     <h1 class="h1_login">Meu carrinho</h1>
     <div id="divs_carrinho">
         <div id="div_carrinho">
             <div class="carrinho_cabecalho">
                 <div class="pcabecalho">produto</div>
-                <div class="pcabecalho">quantidade</div>
                 <div class="pcabecalho">remover</div>
                 <div class="pcabecalho">preço</div>
             </div>
             <hr class="hr_carrinho">
-            <div class="carrinhoprod">
-                <img src="fotos_produtos/anatomia_musculacao.jpg" alt="anatomia_musculacao" class="imgcarrinho">
-                <p class="ptitle">Anatomia da musculação</p>
-                <input type="number" class="quantprod">
-                <i class="fa-solid fa-trash" style="color: #000000;"></i>
-                <p class="pprice">R$ 204,00</p>
-            </div>
-            <hr class="hr_carrinho">
-            <div class="carrinhoprod">
-                <img src="fotos_produtos/meditacoes.jpg" alt="anatomia_musculacao" class="imgcarrinho">
-                <p class="ptitle">Meditações</p>
-                <input type="number" class="quantprod">
-                <i class="fa-solid fa-trash" style="color: #000000;"></i>
-                <p class="pprice">R$ 36,00</p>
-            </div>
-            <hr class="hr_carrinho">
-            <div class="carrinhoprod">
-                <img src="fotos_produtos/1984.jpg" alt="anatomia_musculacao" class="imgcarrinho">
-                <p class="ptitle">1984</p>
-                <input type="number" class="quantprod">
-                <i class="fa-solid fa-trash" style="color: #000000;"></i>
-                <p class="pprice">R$ 29,90</p>
+            
+                <?php
+                    if(empty($_SESSION["carrinho"])) {
+                        die("O carrinho está vazio!");
+                    }
+                    $idsString = "'" . implode("', '", $_SESSION["carrinho"]) . "'";
+                    $comando = "SELECT * FROM produtos WHERE idprod IN ($idsString)";
+                    $resultado = mysqli_query($conexao, $comando);
+                    $registros = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+
+                    foreach ($registros as $registro) :
+                        $id = $registro["idprod"];
+                ?>
+                <div class="carrinhoprod">
+                <hr class="hr_carrinho">
+                <img src="<?=$registro["foto"] ?>" alt="foto" class="imgcarrinho">
+                <p class="ptitle"><?=$registro["titulo"]?></p>
+                <a href="remover_produto.php?id=<?=$id?>" class="remover-link">
+                    <i class="fa-solid fa-trash" style="color: #000000;"></i>
+                </a>
+                <p class="pprice">R$ <?=$registro["preco"]?></p>
+                </div>
+                <hr class="hr_carrinho">
+            <?php endforeach ?>
             </div>
             <hr class="hr_carrinho">
         </div>
+        <a href="limparCarrinho.php" class="limpar">Limpar Carrinho</a>
 
         <div id="div_resumo">
             <h2 class="ptitleresumo">resumo do pedido</h2>

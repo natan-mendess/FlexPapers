@@ -32,9 +32,7 @@
                     <h3 class="subtitulo"><?=$tipoCapa?> – <?=$dataLancamento?></h3>
                     <div id="preco_compra">
                         <h1 class="preco">R$ <?= number_format($preco, 2, ',', '.') ?></h1>
-                        <form>
-                            <button class="botao_compra">COMPRAR</button>
-                        </form>
+                        <a href="adicionarCarrinho.php?id=<?=$id?>" class="botao_compra">COMPRAR</a>
                     </div>
                     <p class="descricao"><?=$descricao?></p>
                 </div>
