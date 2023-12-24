@@ -91,3 +91,8 @@ values ('carlos@email.com', 'senha123', 'Carlos Afonso', 'masculino', 1, '123-45
 ('jose@email.com', 'senha456', 'José Ricardo', 'masculino', 2, '987-654-3210'),
 ('isadora@email.com', 'senha789', 'Isadora Muniz', 'feminino', 3, '555-555-5555');
 
+ALTER TABLE Usuarios
+ADD COLUMN administrador INT AFTER telefone;
+
+insert into Usuarios (email, senha, nome, sexo, endereco, telefone, administrador)
+values ('admin@admin.com', 'admin', 'ADM', 'masculino', 1, '123-456-7890',1);

@@ -293,7 +293,7 @@ i {
     border: solid 1px #DADADA;
     padding: 20px;
     width: 300px;
-    height: 350px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1125,4 +1125,18 @@ hr{
 
 .remover-link:hover {
     color: #ff3333;
+}
+
+.limpar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.limpar:hover {
+    background-color: #2980b9;
 }

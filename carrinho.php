@@ -1,6 +1,8 @@
 <?php 
     require "cabecalho.php";
     require "conexao.php";
+
+    $total = 0;
 ?>
 
     <h1 class="h1_login">Meu carrinho</h1>
@@ -32,32 +34,27 @@
                 <a href="remover_produto.php?id=<?=$id?>" class="remover-link">
                     <i class="fa-solid fa-trash" style="color: #000000;"></i>
                 </a>
-                <p class="pprice">R$ <?=$registro["preco"]?></p>
+                <p class="pprice">R$ <?=number_format($registro["preco"], 2, ',', '.')?></p>
                 </div>
                 <hr class="hr_carrinho">
-            <?php endforeach ?>
+            <?php 
+            $total = $total + $registro["preco"];
+            endforeach 
+            ?>
+            <a href="limparCarrinho.php" class="limpar">Limpar Carrinho</a>
             </div>
             <hr class="hr_carrinho">
-        </div>
-        <a href="limparCarrinho.php" class="limpar">Limpar Carrinho</a>
 
-        <div id="div_resumo">
-            <h2 class="ptitleresumo">resumo do pedido</h2>
-            <div id="subtotal">
-                <p class="subtotallabel">Subtotal (3 produtos)</p>
-                <p class="subtotallabel">R$ 269,90</p>
-            </div>
-            <div id="subtotal">
-                <p class="subtotallabel">frete</p>
-                <p class="subtotallabel">R$ 30,00</p>
-            </div>
+            <div id="div_resumo">
+            <h2 class="ptitleresumo">Resumo do pedido</h2>
             <hr class="hr_carrinho2">
             <div id="subtotal">
-                <h2 class="ptitleresumo">Total</h2>
-                <h2 class="ptitleresumo">R$ 299,90</h2>
+                <h2 class="ptitleresumo">total</h2>
+                <h2 class="ptitleresumo">R$ <?=number_format($total, 2, ',', '.')?></h2>
             </div>
-            <a href="finalizar_pedido.html" id="link_finaliza">CONTINUAR</a>
-            <p class="cupomtext">possui cupom ou vale? você poderá usá-los na etapa de pagamento.</p>
+            <a href="finalizar_pedido.php" id="link_finaliza">CONTINUAR</a>
+        </div>
+            
         </div>
         
     </div>
